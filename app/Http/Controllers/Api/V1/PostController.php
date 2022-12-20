@@ -14,9 +14,8 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        return PostResource::collection(Post::latest()->paginate());
     }
 
     /**
@@ -59,8 +58,12 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
-    {
-        //
+    public function destroy(Post $post) {
+        $post->delete();
+        return response()->json([
+                    'message' => 'success'
+                        ], 204);
+        # Si pongo el 204 solo se muestra el codigo de estado
+        # sino, muestro el mensaje
     }
 }
