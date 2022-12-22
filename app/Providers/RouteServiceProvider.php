@@ -49,4 +49,24 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
     }
+    
+    
+ // Puedo usar esta funcion para tener las rutas de cada version en un archivo diferente (api.php)
+//      $this->routes(function () {
+//            Route::prefix('api/v1')
+//                ->middleware('api')
+//                ->namespace($this->namespace)
+//                ->group(base_path('routes/api/v1.php'));
+//
+//            Route::prefix('api/v2')
+//                ->middleware('api')
+//                ->namespace($this->namespace)
+//                ->group(base_path('routes/api/v2.php'));
+//
+//            Route::middleware('web')
+//                ->namespace($this->namespace)
+//                ->group(base_path('routes/web.php'));
+//        });
+    
+    
 }
