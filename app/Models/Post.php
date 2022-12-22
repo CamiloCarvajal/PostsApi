@@ -19,4 +19,11 @@ class Post extends Model
         // return $this->created_at->format('d/m/Y');
         return $this->created_at->diffForHumans();
     }
+    
+    // Esta funcion ayuda a que se puedan obetener los datos del user desde el PostResource
+    // 'email' => $this->user->email
+    public function user() {
+        return $this->belongsTo(User::class);
+    }    
+    
 }
